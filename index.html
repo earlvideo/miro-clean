@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miro Board</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script>
+        function redirect() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
+                // 모바일 기기일 경우
+                window.location.href = "https://miro.com/app/board/uXjVK2J7ICc=/present";
+            } else {
+                // PC일 경우
+                document.getElementById('miroIframe').src = "https://miro.com/app/board/uXjVK2J7ICc=/present";
+            }
+        }
+    </script>
+</head>
+<body onload="redirect()">
+    <iframe id="miroIframe" src="" frameborder="0" allowfullscreen></iframe>
+</body>
+</html>
